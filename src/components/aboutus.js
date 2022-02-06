@@ -96,19 +96,19 @@ return(
 <div className = "investmentsandstats">
     
 <div className="awardcard">
-<div><CountUp end={20} duration = {1.5}/> + </div>
+<div><CountUp end={20} duration = {1.5} delay = {6}/> + </div>
 <div>Countries</div>
 
 </div>
 
 <div className="awardcard">
-<div>$ <CountUp end={180} duration = {2.5}/> Mn+ </div>
+<div>$ <CountUp end={180} duration = {2.5} delay = {6}/> Mn+ </div>
 <div>Funding</div>
 
 </div>
 
 <div className="awardcard">
-<div> <CountUp end={30} duration = {2}/>% </div>
+<div> <CountUp end={30} duration = {2}  delay = {6} />% </div>
 <div>Less Price</div>
 
 </div>
@@ -200,10 +200,10 @@ return(
   <div class = "blahcontainer">
 
 <div className = "counterandlogo">
-    
+
     <div className = "live">
     <div className = "animate__animated animate__flash animate__infinite	infinite" >
-    <CountUp end={69} duration = {3}/><br/> LIVE
+    <CountUp end={69} duration = {3} delay = {5}/><br/> LIVE
         </div>
     </div>
     <div class = "blah">

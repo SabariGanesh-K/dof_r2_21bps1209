@@ -1,4 +1,4 @@
-import { React } from "react";
+import React, { useState } from "react";
 import "./home.css";
 import intropic from '../assets/intropic.jpg';
 import { NavLink } from "react-router-dom";
@@ -14,6 +14,119 @@ import experts from '../assets/experts.png'
 import smartcontract from '../assets/smart-contracts.jpg'
 import pocketfriendly from '../assets/pocketfriendly.png'
 import ScrollToTop from "react-scroll-to-top";
+import { Control, LocalForm, Errors } from "react-redux-form";
+import {Modal,ModalHeader,ModalBody,Row,Col,Label} from 'reactstrap'
+
+const Subscribe = () =>{
+const [isModalOpen,changeModalStatus] = useState(false)
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
+const required = (val) => val && val.length;
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const mail = (val) => val && val.match(mailformat);
+
+const togglemodal = () =>{
+  changeModalStatus(!isModalOpen)
+}
+const onsubmit = () =>{
+  changeModalStatus()
+}
+return(
+  <React.Fragment>
+  <button className = "creator" onClick={togglemodal}>
+  <span className = "text" >SUBSCRIBE</span>
+</button>
+
+<Modal
+  isOpen={isModalOpen}
+  toggle={togglemodal}
+  fade={false}
+>
+  <ModalHeader>Subscribe to our Newsletter .. </ModalHeader>
+  <ModalBody>
+    <LocalForm onSubmit={(values) => onsubmit}>
+    
+
+      <Row className="form-group">
+        <Label htmlFor="name" md={2}>
+          Name:
+        </Label>
+        <Col md={10}>
+          <Control.text
+            model=".name"
+            id="name"
+            name="name"
+            className="form-control"
+            validators={{
+              required,
+              minLength: minLength(3),
+              maxLength: maxLength(15),
+            }}
+          />
+          <Errors
+            className="text-danger"
+            model=".name"
+            show="touched"
+            messages={{
+              required: "Required!",
+              minLength: "Name must be atleast 3 characters..",
+              maxLength: "Name must be less than 15 characters",
+            }}
+          />
+        </Col>
+      </Row>
+
+      <Row className="form-group">
+        <Label htmlFor="email" md={2}>
+          Email
+        </Label>
+        <Col md={10}>
+          <Control.text
+            model=".email"
+            id="email"
+            name="email"
+            className="form-control"
+            validators={{
+              required,
+              mail
+            }}
+          />
+          <Errors
+            className="text-danger"
+            model=".email"
+            show="touched"
+            messages={{
+              required: "Required!",
+              mail:"Enter a Valid mail Id"
+            }}
+          />
+        </Col>
+      </Row>
+
+      <Row className="form-group">
+        <Col md={{ size: 10, offset: 2 }}>
+        
+          <button className = "sendbutton" onClick= {()=>onsubmit()}  >
+  <div className="svg-wrapper-1">
+    <div className="svg-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+      </svg>
+    </div>
+  </div>
+  <span>Send</span>
+</button>
+        </Col>
+      </Row>
+    </LocalForm>
+  </ModalBody>
+</Modal>
+</React.Fragment>
+)
+
+}
+
 
 const Home = () => {
   return (
@@ -30,11 +143,9 @@ const Home = () => {
       
 
       <div className="intro">
-        <br />
-        <br />
-   
+       
         <div className="introwords">
-          <span className>EXPLORE<br/> THE <br/>METAVERSE</span>
+          <span >EXPLORE<br/> THE <br/>METAVERSE</span>
         </div>
 
 
@@ -60,11 +171,10 @@ const Home = () => {
               <span className="text">ABOUT US</span>
             </button>
           </NavLink>
-          <a href="#" style={{ textDecoration: "none" }}>
-            <button className="creator">
-              <span className="text" >OPEN SOURCE</span>
-            </button>
-          </a>
+          <div>
+            <Subscribe/>
+          </div>
+
         </div>
       </ScrollAnimation>
       <ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
@@ -133,7 +243,7 @@ const Home = () => {
         
         <div className="statsbox">
           <div className="statsbox_content">
-            <div><img class = "featureimage" src = {smartcontract} width="300rem" height ="250rem"/></div>
+            <div><img class = "featureimage" src = {smartcontract} width="200rem" height ="150rem"/></div>
               <div>PROTECTED </div>  
             <div> SMART</div>
             <div>CONTRACTS</div>
@@ -141,17 +251,17 @@ const Home = () => {
         </div>
         <div className="statsbox">
           <div className="statsbox_content">
-          <div><img class = "featureimage" src = {experts} width="300rem" height ="250rem"/></div>
-              <div>DESIGNED</div>  
-            <div> BY </div>
+          <div><img class = "featureimage" src = {experts} width="200rem" height ="150rem"/></div>
+              <div>DESIGNED BY</div>  
+           
             <div>EXPERTS</div>
           </div>
         </div>
         <div className="statsbox">
           <div className="statsbox_content">
-          <div><img class = "featureimage" src = {pocketfriendly} width="300rem" height ="250rem"/></div>
-              <div>AFFORDABLE</div>  
-            <div> PROJECTS</div>
+          <div><img class = "featureimage" src = {pocketfriendly} width="200REM" height ="150REM"/></div>
+              <div style = {{textAlign:'center '}}>AFFORDABLE PROJECTS</div>  
+         
           </div>
         </div>
       </div>

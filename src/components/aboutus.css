@@ -10,9 +10,9 @@
     display: flex;
     width: 70rem;
     flex-direction: row;
-
-    justify-content: space-evenly;
-
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
     
 }
 .logomastercontainer{
@@ -20,6 +20,7 @@
     flex-direction: row;
     
     justify-content: center;
+    flex-wrap: wrap;
 align-content: center;
     align-items: center;
     margin-top: 4%;
@@ -63,6 +64,7 @@ align-content: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin: 4%;
 }
 
@@ -127,11 +129,12 @@ background: linear-gradient(to right, #00dbde, #fc00ff); /* W3C, IE 10+/ Edge, F
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 /* From cssbuttons.io by @fanishah */
 .awardcard {
-    width: 25%;
-  
+    width: 100%;
+  margin: 2%;
     background-color: #212121;
     border-radius: 1rem;
     border: #212121 0.2rem solid;
@@ -141,6 +144,7 @@ background: linear-gradient(to right, #00dbde, #fc00ff); /* W3C, IE 10+/ Edge, F
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
     font-size: 2rem;
     color: whitesmoke;
 
@@ -156,6 +160,11 @@ background: linear-gradient(to right, #00dbde, #fc00ff); /* W3C, IE 10+/ Edge, F
        text-align: center;
        font-size: 3rem;
        margin: 4%;
+       margin-top: 5%;
+       color: black;
+       background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+
    }
    .investors{
        display: flex;
