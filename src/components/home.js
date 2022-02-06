@@ -5,20 +5,25 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png"
 import "animate.css/animate.min.css";
 import {Carousel} from 'react-bootstrap'
+import c1 from "../assets/c1.jpg"
+import c2 from "../assets/c2.jpg"
+import c3 from "../assets/c3.jpg"
 import ScrollAnimation from "react-animate-on-scroll";
 import privacy from "../assets/privacy.jpg";
 import experts from '../assets/experts.png'
 import smartcontract from '../assets/smart-contracts.jpg'
 import pocketfriendly from '../assets/pocketfriendly.png'
+import ScrollToTop from "react-scroll-to-top";
+
 const Home = () => {
   return (
     <div className="home">
-      
-      <div class = "company_logo">
-        <div class = "logo">
+  <ScrollToTop smooth />
+      <div className = "company_logo">
+        <div className = "logo">
     <img src = {logo}/>
         </div>
-        <div class = "logoname">
+        <div className = "logoname">
               nameless
         </div>
       </div>
@@ -27,11 +32,11 @@ const Home = () => {
       <div className="intro">
         <br />
         <br />
-        {/* <ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>    */}
+   
         <div className="introwords">
-          <span className>EXPLORE THE METAVERSE</span>
+          <span className>EXPLORE<br/> THE <br/>METAVERSE</span>
         </div>
-        {/* </ScrollAnimation> */}
+
 
         <div >
           <ScrollAnimation animateIn="animate__flipInY" animateOnce={true}>
@@ -47,25 +52,27 @@ const Home = () => {
 
       <ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
         <div className="buttonsContainer">
-          <NavLink className="nav-link" to="/">
-            <button className="go">Go Ahead</button>
+          <NavLink className="nav-link" to="/products">
+            <button className="go" onClick = {()=>document.documentElement.scrollTop = 0} >Go Ahead</button>
           </NavLink>
           <NavLink className="nav-link" to="/aboutus">
-            <button className="creator">
+            <button className="creator" onClick = {()=>document.documentElement.scrollTop = 0}>
               <span className="text">ABOUT US</span>
             </button>
           </NavLink>
           <a href="#" style={{ textDecoration: "none" }}>
             <button className="creator">
-              <span className="text">OPEN SOURCE</span>
+              <span className="text" >OPEN SOURCE</span>
             </button>
           </a>
         </div>
       </ScrollAnimation>
+      <ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
       <div class = "privacycontainer">
       <div>
  
 </div> 
+
       <div className="introsubtitle">
         <span></span>
         <span></span>
@@ -75,49 +82,55 @@ const Home = () => {
         EXPERIENCE THE RETURN OF PRIVACY WITH WEB 3.0
       </div>
       </div>
+      </ScrollAnimation>
       <br />
       <br />
+      
+      <ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
       <div className="carouselcontainer">
-      <Carousel>
+      <Carousel style = {{width:"50rem"}}>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
+      src={c1}
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3></h3>
+      <p></p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=282c34"
+      src={c2}
       alt="Second slide"
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3></h3>
+      <p></p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
+      src={c3}
       alt="Third slide"
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3></h3>
+      <p></p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>       
       </div>
+      </ScrollAnimation>
       <br/><br/>
+      <ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
       <div className="stats">
+        
         <div className="statsbox">
           <div className="statsbox_content">
             <div><img class = "featureimage" src = {smartcontract} width="300rem" height ="250rem"/></div>
@@ -142,11 +155,19 @@ const Home = () => {
           </div>
         </div>
       </div>
+      </ScrollAnimation>
 <br/><br/>
       <div class = "footer">
 <div class = "footer2">
 <br/>
   <div class = "blahcontainer">
+  <div className = "counterandlogo">
+
+    <div className = "live">
+    <div className = "animate__animated animate__flash animate__infinite	infinite" >
+        69<br/> LIVE
+        </div>
+    </div>
     <div class = "blah">
     <div class = "company_logo2">
         <div class = "logo">
@@ -157,6 +178,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+</div>
 
     <div class = "linkscontainer">
   <a href = "#" style={{textDecoration:'none'}} class = "links" >Blogs</a>
@@ -178,7 +200,9 @@ const Home = () => {
 </div>
       
       </div>
+ 
     </div>
+ 
   );
 };
 

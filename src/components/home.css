@@ -136,6 +136,10 @@ background-attachment: fixed;
     border-radius: 50px;
     margin: 1%;
 }
+.carouselcontainer{
+    display: flex;
+    justify-content: center;
+}
 
 .introsubtitle{
     background: #3494E6;  /* fallback for old browsers */
@@ -384,7 +388,7 @@ text-align: center;
        display: flex;
        justify-content: space-around;
        align-items: center;
-
+    
        flex-direction: column;
    }
    .linkscontainer{
